@@ -19,16 +19,61 @@
   <meta name="author" content="kunkun">
   <meta name="keywords" content="">
   
-    <meta name="description" content="通过此视频学习第一部分:数据库的创建在sql server中注释是使用 –  –(两个-) ,字符串是使用 ‘’ (单引号),注意与其他语言的注释和字符串语法不一样语法: create table 库名在创建数据库的时候可以选择建立日志文件和数据文件,紧跟着create table 库名 下面写也可以快速创建数据库即只用写create table 库名,下面不用跟任何东西,数据文件和日志文件都是默">
+    <meta name="description" content="通过此视频学习细节注意点:在sql server中注释是使用 –  –(两个-) ,字符串是使用 ‘’ (单引号),注意与其他语言的注释和字符串语法不一样第一部分:数据库的创建语法: create database 库名在创建数据库的时候可以选择建立日志文件和数据文件,紧跟着create table 库名 下面写也可以快速创建数据库即只用写create table 库名,下面不用跟任何东西,数据文">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sql server笔记 自用(更新中)">
 <meta property="og:url" content="http://example.com/2024/12/06/sql-server-note/index.html">
 <meta property="og:site_name" content="kunkun0103">
-<meta property="og:description" content="通过此视频学习第一部分:数据库的创建在sql server中注释是使用 –  –(两个-) ,字符串是使用 ‘’ (单引号),注意与其他语言的注释和字符串语法不一样语法: create table 库名在创建数据库的时候可以选择建立日志文件和数据文件,紧跟着create table 库名 下面写也可以快速创建数据库即只用写create table 库名,下面不用跟任何东西,数据文件和日志文件都是默">
+<meta property="og:description" content="通过此视频学习细节注意点:在sql server中注释是使用 –  –(两个-) ,字符串是使用 ‘’ (单引号),注意与其他语言的注释和字符串语法不一样第一部分:数据库的创建语法: create database 库名在创建数据库的时候可以选择建立日志文件和数据文件,紧跟着create table 库名 下面写也可以快速创建数据库即只用写create table 库名,下面不用跟任何东西,数据文">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/sql_sever_notepic/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%9B%E5%BB%BA.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E8%A1%A8%E7%9A%84%E5%88%9B%E5%BB%BA.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8C%BA%E5%88%AB.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E7%BA%A6%E6%9D%9F%E5%8F%98%E5%8C%96.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E4%B8%BB%E9%94%AE%E7%BA%A6%E6%9D%9F.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E4%B8%80%E6%AC%A1%E6%80%A7%E6%8F%92%E5%85%A5%E5%A4%9A%E6%9D%A1%E6%95%B0%E6%8D%AE.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E5%88%A0%E9%99%A4%E6%93%8D%E4%BD%9C.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/delete%E5%8C%BA%E5%88%AB.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E6%9F%A5%E8%AF%A2.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A21.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2.png">
+<meta property="og:image" content="http://example.com/themes/fluid/source/sql_sever_notepic/%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E6%96%B9%E6%B3%95%E4%B8%80.png">
+<meta property="og:image" content="http://example.com/themes/fluid/source/sql_sever_notepic/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E6%96%B9%E6%B3%95%E4%BA%8C.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E5%B7%A6%E5%A4%96%E8%81%94.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E5%8F%B3%E8%BF%9E%E6%8E%A5.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E5%85%A8%E8%BF%9E%E6%8E%A5.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/select%E5%92%8Cset%E5%8C%BA%E5%88%AB.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/go%E8%AF%AD%E5%8F%A5.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/if.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/switch.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/while.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E5%88%86%E9%A1%B5%E6%96%B9%E6%B3%95%E4%B8%80.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E5%88%86%E9%A1%B5%E6%96%B9%E6%B3%95%E4%BA%8C.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E4%BA%8B%E5%8A%A11.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E4%BA%8B%E5%8A%A12.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E7%B4%A2%E5%BC%95%E5%8C%BA%E5%88%AB.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E9%9D%9E%E8%81%9A%E9%9B%86%E7%B4%A2%E5%BC%95%E6%93%8D%E4%BD%9C.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E8%A7%86%E5%9B%BE%E8%AF%AD%E6%B3%95.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E8%A7%86%E5%9B%BE%E6%93%8D%E4%BD%9C.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E6%B8%B8%E6%A0%87%E5%88%86%E7%B1%BB.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E6%B8%B8%E6%A0%87%E6%93%8D%E4%BD%9C.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E6%B8%B8%E6%A0%87%E9%81%8D%E5%8E%86.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E5%87%BD%E6%95%B01.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E5%87%BD%E6%95%B0%E6%93%8D%E4%BD%9C.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E5%87%BD%E6%95%B0%E6%93%8D%E4%BD%9C2.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E8%A7%A6%E5%8F%91%E5%99%A8%601.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/insert%E8%A7%A6%E5%8F%91%E5%99%A8.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B1.png">
+<meta property="og:image" content="http://example.com/sql_sever_notepic/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B2.png">
 <meta property="article:published_time" content="2024-12-06T08:15:08.000Z">
-<meta property="article:modified_time" content="2024-12-08T15:00:40.001Z">
+<meta property="article:modified_time" content="2024-12-20T15:28:05.745Z">
 <meta property="article:author" content="kunkun">
 <meta property="article:tag" content="sql">
 <meta property="article:tag" content="语言">
@@ -240,7 +285,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          299 字
+          1.4k 字
         
       </span>
     
@@ -251,7 +296,7 @@
         
         
         
-          3 分钟
+          13 分钟
         
       </span>
     
@@ -306,9 +351,59 @@
             
               <div class="markdown-body">
                 
-                <h1 id="通过此视频学习"><a href="#通过此视频学习" class="headerlink" title="通过此视频学习"></a>通过此<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1XV411C7TP/?p=20&share_source=copy_web&vd_source=ac0a2bcc69a50ded81b076abe6ec8d55">视频</a>学习</h1><h2 id="第一部分-数据库的创建"><a href="#第一部分-数据库的创建" class="headerlink" title="第一部分:数据库的创建"></a>第一部分:数据库的创建</h2><p>在sql server中注释是使用 –  –(两个-) ,字符串是使用 ‘’ (单引号),注意与其他语言的注释和字符串语法不一样<br>语法: create table 库名<br>在创建数据库的时候可以选择建立日志文件和数据文件,紧跟着create table 库名 下面写<br>也可以快速创建数据库即只用写create table 库名,下面不用跟任何东西,数据文件和日志文件都是默认值<br>数据文件语法: on(name&#x3D;’逻辑名’,filename&#x3D;’物理路径以及名称’,size&#x3D;文件的初始大小,filegrowth&#x3D;)<br>日志文件语法: log on(name&#x3D;’逻辑名’,filename&#x3D;’物理路径以及名称’,size&#x3D;文件的初始大小,filegrowth&#x3D;)<br>&#x2F;&#x2F;括号里是文件需要的所含信息,文件增长方式可以是百分比也可以是具体大小,如果是百分比则后面不用加单位,如果是具体增长数值后面要加单位</p>
+                <h1 id="通过此视频学习"><a href="#通过此视频学习" class="headerlink" title="通过此视频学习"></a>通过此<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1XV411C7TP/?p=20&share_source=copy_web&vd_source=ac0a2bcc69a50ded81b076abe6ec8d55">视频</a>学习</h1><h5 id="细节注意点-在sql-server中注释是使用-–-–-两个-字符串是使用-‘’-单引号-注意与其他语言的注释和字符串语法不一样"><a href="#细节注意点-在sql-server中注释是使用-–-–-两个-字符串是使用-‘’-单引号-注意与其他语言的注释和字符串语法不一样" class="headerlink" title="细节注意点:在sql server中注释是使用 –  –(两个-) ,字符串是使用 ‘’ (单引号),注意与其他语言的注释和字符串语法不一样"></a>细节注意点:在sql server中注释是使用 –  –(两个-) ,字符串是使用 ‘’ (单引号),注意与其他语言的注释和字符串语法不一样</h5><h2 id="第一部分-数据库的创建"><a href="#第一部分-数据库的创建" class="headerlink" title="第一部分:数据库的创建"></a>第一部分:数据库的创建</h2><p>语法: create database 库名<br>在创建数据库的时候可以选择建立日志文件和数据文件,紧跟着create table 库名 下面写<br>也可以快速创建数据库即只用写create table 库名,下面不用跟任何东西,数据文件和日志文件都是默认值<br>数据文件语法: on(name&#x3D;’逻辑名’,filename&#x3D;’物理路径以及名称’,size&#x3D;文件的初始大小,filegrowth&#x3D;)<br>日志文件语法: log on(name&#x3D;’逻辑名’,filename&#x3D;’物理路径以及名称’,size&#x3D;文件的初始大小,filegrowth&#x3D;)<br>&#x2F;&#x2F;括号里是文件需要的所含信息,文件增长方式可以是百分比也可以是具体大小,如果是百分比则后面不用加单位,如果是具体增长数值后面要加单位</p>
 <h4 id="注意在写括号里的所含信息的时候每一项写完要加-‘-‘-最后一项不用加-‘-‘"><a href="#注意在写括号里的所含信息的时候每一项写完要加-‘-‘-最后一项不用加-‘-‘" class="headerlink" title="注意在写括号里的所含信息的时候每一项写完要加 ‘ , ‘   最后一项不用加 ‘ , ‘"></a>注意在写括号里的所含信息的时候每一项写完要加 ‘ , ‘   最后一项不用加 ‘ , ‘</h4><p><img src="/sql_sever_notepic/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%9B%E5%BB%BA.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
-<h2 id="第二部分-表的创建"><a href="#第二部分-表的创建" class="headerlink" title="第二部分:表的创建"></a>第二部分:表的创建</h2>
+<h2 id="第二部分-表的创建"><a href="#第二部分-表的创建" class="headerlink" title="第二部分:表的创建"></a>第二部分:表的创建</h2><p>语法: create table 表名{}           &#x2F;&#x2F;括号里是文件需要的所含信息<br>如果表名和保留字相同要将保留字用[]围起来,例如:[Rank]<br><img src="/sql_sever_notepic/%E8%A1%A8%E7%9A%84%E5%88%9B%E5%BB%BA.png" srcset="/img/loading.gif" lazyload alt="例子"><br>在表里写包含信息的时候先写名称再写类型然后再写其他信息<br>primary key是主键的意思    references是外键的意思   check是约束的意思<br>identy(a,b)&#x2F;&#x2F;此函数是自动增长的意思从a开始增长量为b</p>
+<p>char,varchar,narvchar,text的区别:<br><img src="/sql_sever_notepic/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8C%BA%E5%88%AB.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<p>删除表语法:drop table 表名</p>
+<h2 id="第三部分-表的修改"><a href="#第三部分-表的修改" class="headerlink" title="第三部分:表的修改"></a>第三部分:表的修改</h2><h4 id="添加列"><a href="#添加列" class="headerlink" title="添加列"></a>添加列</h4><p>语法:alter table 表名 add 列名 数据类型<br>eg:alter table people add peoplemail varchar(20)</p>
+<h4 id="删除列"><a href="#删除列" class="headerlink" title="删除列"></a>删除列</h4><p>语法:alter table 表名 drop column 列名<br>eg:alter table people drop column peoplemail</p>
+<h4 id="修改列"><a href="#修改列" class="headerlink" title="修改列"></a>修改列</h4><p>语法:alter table 表名 alter column 列名 数据类型<br>eg:alter table people alter column peopleaddress narchar(300)       &#x2F;&#x2F;修改varchar(200)为varchar(300)</p>
+<h4 id="维护约束-删除-添加"><a href="#维护约束-删除-添加" class="headerlink" title="维护约束(删除,添加)"></a>维护约束(删除,添加)</h4><h6 id="删除约束"><a href="#删除约束" class="headerlink" title="删除约束"></a>删除约束</h6><p>语法:alter table 表名 drop constraint 约束名</p>
+<h6 id="添加约束-check约束"><a href="#添加约束-check约束" class="headerlink" title="添加约束(check约束)"></a>添加约束(check约束)</h6><p>语法:alter table 表名 add constraint 约束名 check(表达式)<br><img src="/sql_sever_notepic/%E7%BA%A6%E6%9D%9F%E5%8F%98%E5%8C%96.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<h6 id="添加约束-主键-唯一-默认值-外键约束"><a href="#添加约束-主键-唯一-默认值-外键约束" class="headerlink" title="添加约束(主键,唯一,默认值,外键约束)"></a>添加约束(主键,唯一,默认值,外键约束)</h6><p><img src="/sql_sever_notepic/%E4%B8%BB%E9%94%AE%E7%BA%A6%E6%9D%9F.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<h2 id="第三部分-插入数据"><a href="#第三部分-插入数据" class="headerlink" title="第三部分:插入数据"></a>第三部分:插入数据</h2><p>语法:insert into 表名(列名,…,…)values(…,…,…)<br><img src="/sql_sever_notepic/%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<p>一次性插入多行数据<br><img src="/sql_sever_notepic/%E4%B8%80%E6%AC%A1%E6%80%A7%E6%8F%92%E5%85%A5%E5%A4%9A%E6%9D%A1%E6%95%B0%E6%8D%AE.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<h2 id="第四部分-修改数据"><a href="#第四部分-修改数据" class="headerlink" title="第四部分:修改数据"></a>第四部分:修改数据</h2><h4 id="修改"><a href="#修改" class="headerlink" title="修改:"></a>修改:</h4><p>语法:update 表名 set 字段1&#x3D;值1,字段2&#x3D;值2 where 条件<br><img src="/sql_sever_notepic/%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><p>语法:delete from 表名 where 条件<br><img src="/sql_sever_notepic/%E5%88%A0%E9%99%A4%E6%93%8D%E4%BD%9C.png" srcset="/img/loading.gif" lazyload alt="例子"><br>关于drop,truncate,delete的区别:<br>drop table &#x2F;&#x2F;删除表对象<br>truncate table &#x2F;&#x2F;删除数据(清空数据),表对象即结构依旧才存在<br>delete from 删除所有数据,表对象即结构依然存在<br><img src="/sql_sever_notepic/delete%E5%8C%BA%E5%88%AB.png" srcset="/img/loading.gif" lazyload alt="其他区别"></p>
+<h2 id="第五部分-查询"><a href="#第五部分-查询" class="headerlink" title="第五部分:查询"></a>第五部分:查询</h2><p>查询所有 语法:select*from 表名<br>查询其中的指定部分列 语法:select 指定列名 起的别名,指定列名,…. from 表名<br><img src="/sql_sever_notepic/%E6%9F%A5%E8%AF%A2.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<h4 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询:"></a>条件查询:</h4><p>关于between…and…,in(),升序,降序的用法<br><img src="/sql_sever_notepic/%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<p>关于top,null查询用法<br><img src="/sql_sever_notepic/%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A21.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<h4 id="模糊查询"><a href="#模糊查询" class="headerlink" title="模糊查询:"></a>模糊查询:</h4><p>%和_的区别:<br>%代表有0个或多个字符,_代表只有一个字符<br><img src="/sql_sever_notepic/%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2.png" srcset="/img/loading.gif" lazyload alt="例子"><br>eg:select * from people where peoplephone&#x3D;’137[7,8]%5’&#x2F;&#x2F;代表电话号码为127开头第四位好像是7或8最后一个号码是5            如果要表达不是7或8即[^7,8]  加上^符号</p>
+<h4 id="分组查询"><a href="#分组查询" class="headerlink" title="分组查询:"></a>分组查询:</h4><p>语法:group by ….<br><img src="/themes/fluid/source/sql_sever_notepic/%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<h4 id="多表查询-笛卡尔乘积"><a href="#多表查询-笛卡尔乘积" class="headerlink" title="多表查询(笛卡尔乘积):"></a>多表查询(笛卡尔乘积):</h4><h6 id="方法一-where…-and…连接"><a href="#方法一-where…-and…连接" class="headerlink" title="方法一(where….and…连接):"></a>方法一(where….and…连接):</h6><p><img src="/sql_sever_notepic/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E6%96%B9%E6%B3%95%E4%B8%80.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<h6 id="方法二-inner-join…on…连接-内连接方法"><a href="#方法二-inner-join…on…连接-内连接方法" class="headerlink" title="方法二(inner join…on…连接)内连接方法:"></a>方法二(inner join…on…连接)内连接方法:</h6><p><img src="/themes/fluid/source/sql_sever_notepic/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E6%96%B9%E6%B3%95%E4%BA%8C.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<h6 id="方法三外连接-左外连-右外连-全外连"><a href="#方法三外连接-左外连-右外连-全外连" class="headerlink" title="方法三外连接(左外连,右外连,全外连):"></a>方法三外连接(左外连,右外连,全外连):</h6><p>左外连(letf join…on…)以左表为主进行数据显示,主外键关系找不到的数据null代替,即左表全都显示不管符不符合条件:<br><img src="/sql_sever_notepic/%E5%B7%A6%E5%A4%96%E8%81%94.png" srcset="/img/loading.gif" lazyload alt="例子"><br>右外连(right join…on…)以右表为主进行数据显示,主外键关系找不到的数据null代替,即右表全都显示不管符不符合条件:<br>注意左连和右连的关系<br><img src="/sql_sever_notepic/%E5%8F%B3%E8%BF%9E%E6%8E%A5.png" srcset="/img/loading.gif" lazyload alt="例子"><br>全外连(full join…on…)两张表的数据,无论是否符合关系,都要显示:<br><img src="/sql_sever_notepic/%E5%85%A8%E8%BF%9E%E6%8E%A5.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<h2 id="第六部分-聚合函数"><a href="#第六部分-聚合函数" class="headerlink" title="第六部分:聚合函数"></a>第六部分:聚合函数</h2><p>如何求总人数,最大值,最小值,求和,求平均值<br><img src="/sql_sever_notepic/%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<h2 id="第七部分-变量"><a href="#第七部分-变量" class="headerlink" title="第七部分:变量"></a>第七部分:变量</h2><h4 id="信息打印"><a href="#信息打印" class="headerlink" title="信息打印:"></a>信息打印:</h4><p>print ‘hello’ 或者 select ‘hello’</p>
+<h4 id="变量-全局变量和局部变量"><a href="#变量-全局变量和局部变量" class="headerlink" title="变量(全局变量和局部变量)"></a>变量(全局变量和局部变量)</h4><p>注意定义的时候和别的语言不同,数据类型是写在后面.</p>
+<p>赋值set 和 select都可以,两者的区别:<br><img src="/sql_sever_notepic/select%E5%92%8Cset%E5%8C%BA%E5%88%AB.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<p>全局变量(以@@开头,先声明在赋值):<br><img src="/sql_sever_notepic/%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<p>局部变量(以@开头,先声明在赋值):<br><img src="/sql_sever_notepic/%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<h4 id="go语句"><a href="#go语句" class="headerlink" title="go语句:"></a>go语句:</h4><p><img src="/sql_sever_notepic/go%E8%AF%AD%E5%8F%A5.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<h4 id="运算符"><a href="#运算符" class="headerlink" title="运算符:"></a>运算符:</h4><p>运算符和其他语言几乎一样除了!&#x3D;在sql server里是&lt;&gt;</p>
+<h2 id="第八部分-流程控制"><a href="#第八部分-流程控制" class="headerlink" title="第八部分:流程控制"></a>第八部分:流程控制</h2><h4 id="if"><a href="#if" class="headerlink" title="if:"></a>if:</h4><p><img src="/sql_sever_notepic/if.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<h4 id="switch-case"><a href="#switch-case" class="headerlink" title="switch-case:"></a>switch-case:</h4><p><img src="/sql_sever_notepic/switch.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<h4 id="while"><a href="#while" class="headerlink" title="while:"></a>while:</h4><p><img src="/sql_sever_notepic/while.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<h2 id="第九部分-分页"><a href="#第九部分-分页" class="headerlink" title="第九部分:分页"></a>第九部分:分页</h2><h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一:"></a>方法一:</h4><p><img src="/sql_sever_notepic/%E5%88%86%E9%A1%B5%E6%96%B9%E6%B3%95%E4%B8%80.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<h4 id="方法二-row-number"><a href="#方法二-row-number" class="headerlink" title="方法二(row_number):"></a>方法二(row_number):</h4><p><img src="/sql_sever_notepic/%E5%88%86%E9%A1%B5%E6%96%B9%E6%B3%95%E4%BA%8C.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<h2 id="第十部分-事务-绑定在一起"><a href="#第十部分-事务-绑定在一起" class="headerlink" title="第十部分:事务(绑定在一起)"></a>第十部分:事务(绑定在一起)</h2><p>要么同时成功,要么就失败然后回滚<br><img src="/sql_sever_notepic/%E4%BA%8B%E5%8A%A11.png" srcset="/img/loading.gif" lazyload alt="例子"><br><img src="/sql_sever_notepic/%E4%BA%8B%E5%8A%A12.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<h2 id="第十一部分-索引-提高查询效率"><a href="#第十一部分-索引-提高查询效率" class="headerlink" title="第十一部分:索引(提高查询效率)"></a>第十一部分:索引(提高查询效率)</h2><p>分为聚集索引和非聚集索引:<br><img src="/sql_sever_notepic/%E7%B4%A2%E5%BC%95%E5%8C%BA%E5%88%AB.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<p>非聚集索引的相关操作:<br><img src="/sql_sever_notepic/%E9%9D%9E%E8%81%9A%E9%9B%86%E7%B4%A2%E5%BC%95%E6%93%8D%E4%BD%9C.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<h2 id="第十二部分-视图"><a href="#第十二部分-视图" class="headerlink" title="第十二部分:视图"></a>第十二部分:视图</h2><p>可以理解为一个虚拟表,而且可以对视图进行操作但是不建议,不会改变原表,如果要修改还是对原表修改.<br>语法:<br><img src="/sql_sever_notepic/%E8%A7%86%E5%9B%BE%E8%AF%AD%E6%B3%95.png" srcset="/img/loading.gif" lazyload alt="例子"><br>相关操作:<br><img src="/sql_sever_notepic/%E8%A7%86%E5%9B%BE%E6%93%8D%E4%BD%9C.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<h2 id="第十三部分-游标"><a href="#第十三部分-游标" class="headerlink" title="第十三部分:游标"></a>第十三部分:游标</h2><p>定位到结果集中的某一行<br>游标分类:<br><img src="/sql_sever_notepic/%E6%B8%B8%E6%A0%87%E5%88%86%E7%B1%BB.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<p>游标操作:<br><img src="/sql_sever_notepic/%E6%B8%B8%E6%A0%87%E6%93%8D%E4%BD%9C.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<p>游标遍历:<br><img src="/sql_sever_notepic/%E6%B8%B8%E6%A0%87%E9%81%8D%E5%8E%86.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<h2 id="第十四部分-函数"><a href="#第十四部分-函数" class="headerlink" title="第十四部分:函数"></a>第十四部分:函数</h2><p><img src="/sql_sever_notepic/%E5%87%BD%E6%95%B01.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<p>函数操作语法(删除 建立 调用(调用使用select)):</p>
+<h4 id="无参数"><a href="#无参数" class="headerlink" title="无参数:"></a>无参数:</h4><p><img src="/sql_sever_notepic/%E5%87%BD%E6%95%B0%E6%93%8D%E4%BD%9C.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<h4 id="有参数"><a href="#有参数" class="headerlink" title="有参数:"></a>有参数:</h4><p><img src="/sql_sever_notepic/%E5%87%BD%E6%95%B0%E6%93%8D%E4%BD%9C2.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<h2 id="第十五部分-触发器"><a href="#第十五部分-触发器" class="headerlink" title="第十五部分:触发器"></a>第十五部分:触发器</h2><p>触发器:类似于捆绑在一起发生和操作<br>类别:<br><img src="/sql_sever_notepic/%E8%A7%A6%E5%8F%91%E5%99%A8%601.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<p>例子:在插入后触发(注意写as和go):<br><img src="/sql_sever_notepic/insert%E8%A7%A6%E5%8F%91%E5%99%A8.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<p>不仅可以是insert,还可以是delete,update……</p>
+<h2 id="第十六部分-存储过程"><a href="#第十六部分-存储过程" class="headerlink" title="第十六部分:存储过程"></a>第十六部分:存储过程</h2><p>存储过程和函数的区别:函数只能被sql server调用而存储过程可以呗外部调用<br>语法(删除 定义 调用):<br>无参数:<br><img src="/sql_sever_notepic/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B1.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<p>有参数:<br><img src="/sql_sever_notepic/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B2.png" srcset="/img/loading.gif" lazyload alt="例子"></p>
+<h2 id="完结-此文章仅自用为了应付期末考试复习-记的比较潦草"><a href="#完结-此文章仅自用为了应付期末考试复习-记的比较潦草" class="headerlink" title="完结 此文章仅自用为了应付期末考试复习,记的比较潦草"></a>完结 此文章仅自用为了应付期末考试复习,记的比较潦草</h2>
                 
               </div>
             
@@ -380,6 +475,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2024/12/11/%E5%81%A5%E8%BA%AB%E9%9A%8F%E8%B0%88/" title="健身随谈(持续更新)">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">健身随谈(持续更新)</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
