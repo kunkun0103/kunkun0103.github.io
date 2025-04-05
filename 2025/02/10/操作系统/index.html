@@ -1,0 +1,939 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/blackhole_fav.png">
+  <link rel="icon" href="/img/blackhole_fav.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="kunkun">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="第一章:1.1(操作系统功能):操作系统的四个特征:并发 共享 虚拟 异步(并发和共享是最基本的必须要有) 并发:是指两个或多个事件在同一时间间隔内发生,这些事件宏观上是同时发生的,但在微观上是交替发生的(混淆概念并行:指两个或多个事件在同一时刻同时发生) 共享:分为互斥共享和同时共享.所谓的同时共享往往是在宏观上的,而在微观上这些进程可能是交替着进行的(也有可能是同时) 虚拟:分为空分复用技术(">
+<meta property="og:type" content="article">
+<meta property="og:title" content="操作系统">
+<meta property="og:url" content="http://example.com/2025/02/10/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:site_name" content="kunkun0103">
+<meta property="og:description" content="第一章:1.1(操作系统功能):操作系统的四个特征:并发 共享 虚拟 异步(并发和共享是最基本的必须要有) 并发:是指两个或多个事件在同一时间间隔内发生,这些事件宏观上是同时发生的,但在微观上是交替发生的(混淆概念并行:指两个或多个事件在同一时刻同时发生) 共享:分为互斥共享和同时共享.所谓的同时共享往往是在宏观上的,而在微观上这些进程可能是交替着进行的(也有可能是同时) 虚拟:分为空分复用技术(">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/os/%E5%8D%95%E6%A0%87%E5%BF%97%E6%B3%95.png">
+<meta property="og:image" content="http://example.com/os/%E5%8F%8C%E6%A0%87%E5%89%8D%E6%A3%80%E6%9F%A5%E6%B3%95.png">
+<meta property="article:published_time" content="2025-02-10T13:59:16.000Z">
+<meta property="article:modified_time" content="2025-02-26T15:51:22.654Z">
+<meta property="article:author" content="kunkun">
+<meta property="article:tag" content="操作系统">
+<meta property="article:tag" content="四大件">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/os/%E5%8D%95%E6%A0%87%E5%BF%97%E6%B3%95.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>操作系统 - kunkun0103</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":"ture","scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":"ture","follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>kunkun0103</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/spaceXship1.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="操作系统"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-02-10 21:59" pubdate>
+          2025年2月10日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          7.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          65 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">操作系统</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h3 id="第一章"><a href="#第一章" class="headerlink" title="第一章:"></a>第一章:</h3><h5 id="1-1-操作系统功能"><a href="#1-1-操作系统功能" class="headerlink" title="1.1(操作系统功能):"></a>1.1(操作系统功能):</h5><pre><code class="hljs">操作系统的四个特征:并发 共享 虚拟 异步(并发和共享是最基本的必须要有)
+并发:是指两个或多个事件在同一时间间隔内发生,这些事件宏观上是同时发生的,但在微观上是交替发生的(混淆概念并行:指两个或多个事件在同一时刻同时发生)
+共享:分为互斥共享和同时共享.所谓的同时共享往往是在宏观上的,而在微观上这些进程可能是交替着进行的(也有可能是同时)
+虚拟:分为空分复用技术(如虚拟存储技术)和时分复用技术(如虚拟处理器技术)
+异步:异步是指在多到程序环境下允许多个程序并发执行,但由于资源有限,进程的执行不是一贯到底的,而是走走停停,以不可预知的速度向前推进.
+</code></pre>
+<h5 id="1-3-1-cpu状态"><a href="#1-3-1-cpu状态" class="headerlink" title="1.3.1(cpu状态):"></a>1.3.1(cpu状态):</h5><pre><code class="hljs">cpu有两种状态:内核态(核心态,管态)和用户态(目态)
+         (如何区分:cpu里面有一个寄存器叫程序状态字寄存器(PSW),其中有一个二进制位,1表示内核态,0表示用户态)
+         处于内核态说明正在运行的是内核程序,此时可以执行特权指令
+         处于用户态说明正在运行的是应用程序,此时只能执行非特权指令
+两种状态的切换:内核-&gt;用户:执行一条特权指令---修改PSW的标志位为用户态
+          用户-&gt;内核:由中断引发,硬件自动完成变态过程
+</code></pre>
+<h5 id="1-3-2-中断"><a href="#1-3-2-中断" class="headerlink" title="1.3.2(中断):"></a>1.3.2(中断):</h5><pre><code class="hljs">中断类型:
+        外中断:与当前执行的指令无关,中断信号来源于cpu外部 如:时钟中断,I/O请求中断
+        内中断(也称为异常,例外):与当前执行的指令有关,中断信号来源于cpu内部 如:陷阱,陷入 故障 终止
+不同的中断信号,需要用不同的中断处理程序来处理.当cpu检测到中断信号后,会根据中断信号的类型去查找&quot;中断向量表&quot;,以此来找到相应地中断处理程序在内存中的存放位置
+</code></pre>
+<h5 id="1-4-源语"><a href="#1-4-源语" class="headerlink" title="1.4(源语):"></a>1.4(源语):</h5><pre><code class="hljs">源语是一种特殊的程序,具有原子性,也就是说,这段程序的运行必须一气呵成,不可被中断
+</code></pre>
+<h5 id="1-6-虚拟机"><a href="#1-6-虚拟机" class="headerlink" title="1.6(虚拟机):"></a>1.6(虚拟机):</h5><pre><code class="hljs">虚拟机:使用虚拟化技术,将一台物理机器虚拟化成多台虚拟机器,每个虚拟机器都可以独立运行一个操作系统
+第一类VMM,直接运行在硬件上  第二类VMM,运行在宿主操作系统上
+</code></pre>
+<h3 id="第二章"><a href="#第二章" class="headerlink" title="第二章:"></a>第二章:</h3><h5 id="2-1-1-2-1-2-进程的概念-组成-特征"><a href="#2-1-1-2-1-2-进程的概念-组成-特征" class="headerlink" title="2.1.1+2.1.2(进程的概念 组成 特征):"></a>2.1.1+2.1.2(进程的概念 组成 特征):</h5><pre><code class="hljs">进程实体(进程映像)组成(如果不严谨也可以是进程的组成):由PCB,程序段,数据段组成(进程是动态的,进程实体(进程映像)是静态的)
+PCB是给操作系统用的,程序段 数据段是给进程自己用的,与进程自身的运行逻辑有关
+PCB是进程存在的唯一标志
+进程实体和进程的区别:进程实体反应了进程在某一时刻的状态(可以理解为进程实体是进程在某一时刻的快照)
+进程定义:进程是进程实体的运行过程,是系统进行资源分配和调度的一个独立单位,
+进程的特征:动态性 并发性 独立性 异步性 结构性
+注意:进程是能独立运行,独立获得资源,独立接受调度的基本单位(注意和后面的线程进行区分)
+</code></pre>
+<h5 id="2-1-3-进程的状态与转换"><a href="#2-1-3-进程的状态与转换" class="headerlink" title="2.1.3(进程的状态与转换):"></a>2.1.3(进程的状态与转换):</h5><pre><code class="hljs">状态流程:创建态-&gt;就绪态-&gt;运行态-&gt;(主动行为)阻塞态-&gt;(被动行为)就绪态-&gt;......-&gt;(结束)终止态(三种基本状态:运行态 就绪态 阻塞态)
+进程PCB中,会有一个变量state来表示进程的当前状态
+注意:不能由阻塞态直接转化为运行态,也不能由就绪态直接转化为阻塞态(因为进入阻塞态是进程主动请求的,必须要进程在运行时才能发出这种请求)
+进程的组织方式:链接方式 索引方式
+</code></pre>
+<h5 id="2-1-4-进程控制"><a href="#2-1-4-进程控制" class="headerlink" title="2.1.4(进程控制):"></a>2.1.4(进程控制):</h5><pre><code class="hljs">原语的执行具有原子性,即执行过程只能一气呵成,期间不允许被中断.可以用关中断指令和开中断指令这两个特权指令实现原子性
+CPU执行了关中断指令后,就不再例行检查中断信号(本来执行完一条指令就要检查一次)直到执行开中断指令后才会恢复检查
+</code></pre>
+<h5 id="2-1-6-线程"><a href="#2-1-6-线程" class="headerlink" title="2.1.6(线程):"></a>2.1.6(线程):</h5><pre><code class="hljs">可以把线程理解为轻量级进程
+线程定义:线程是一个基本的cpu执行单元,也是程序执行流的最小单位
+线程几乎不拥有系统资源,它只是调度的基本单位,进程是拥有系统资源
+引入线程后的变化:
+    引入线程之后,不仅是进程之间可以并发,进程内的各线程之间也可以并发,从而进一步提升了系统的并发度,使得一个进程内也可以并发处理各种任务
+    进程和线程的区别:引入线程后,进程只作为除cpu之外的系统资源的分配单元(进程不再是系统调度的基本单位,线程是调度的基本单位,进程现在只是资源分配的基本代单位)
+    系统开销:传统的进程间并发需要切换进程的运行环境,系统开销很大.   进程间并发如果是同一进程内的线程切换则不需要切换进程,系统开销很小.   引入线程后并发所带来的系统开销减小
+线程的属性:
+    1.线程是处理机调度单位
+    2.多cpu计算机中各个线程可占用不同的cpu
+    3.每个线程都有一个线程ID,线程控制块(TCB)(类似于PCB)
+    4.线程也有就绪 阻塞 运行三种基本状态
+    5.线程几乎不拥有系统资源
+    6.同一进程的不同线程间共享进程资源
+    7.由于共享内存地址空间,同一进程中的线程间通信甚至无需系统干预
+    8.同一进程中的线程切换,不会引起进程切换
+    9.不同进程中的线程切换,会引起进程切换
+    10.切换同进程内的线程,系统开销很小
+    11.切换进程,系统开销很大
+线程的实现方式:
+
+    用户级线程:
+        用户级线程由应用程序通过线程库实现,所有的线程管理工作都由应用程序负责(包括线程切换)
+        用户级线程中线程切换可以在用户态下即可完成 无需操作系统参与
+        在用户看来是有多个线程但是在操作系统内核看来并意识不到线程的存在  
+        用户级线程就是从用户视角能看到的线程
+
+        优点:
+            用户级线程的切换在用户空间即可完成 不需要切换到核心态 线程管理的系统开销小 效率高
+        缺点:
+            当一个用户级线程被阻塞后 整个进程都会被阻塞 并发度并不高 多个线程不可在多核处理机上并行运行
+        
+    内核级线程(由操作系统支持的线程):
+        内核级线程的管理工作由操作系统内核完成。
+        线程调度、切换等工作都由内核负责，因此内核级线程的切换必然需要在核心态下才能完成。
+        操作系统会为每个内核级线程建立相应的TCB  通过TCB对线程进行管理。
+        内核级线程就是从操作系统内核视角看能看到的线程
+
+        优点:
+            当一个线程被阻塞后，别的线程还可以继续执行，并发能力强。多线程可在多核处理机上并行执行。
+        缺点:
+            一个用户进程会占用多个内核级线程，线程切换由操作系统内核完成，需要切换到核心态，因此线程管理的成本高，开销大。
+
+    多线程模型(在支持内核级线程的系统中，根据用户级线程和内核级线程的映射关系，可以划分为几种多线程模型):
+        一对一模型:
+            一个用户级线程映射到一个内核级线程。每个用户进程有与用户级线程同数量的内核级线程。
+
+            优点:
+                当一个线程被阻塞后，别的线程还可以继续执行，并发能力强。多线程可在多核处理机上并行执行。
+            缺点:
+                一个用户进程会占用多个内核级线程，线程切换由操作系统内核完成，需要切换到核心态，因此线程管理的成本高，开销大。
+
+        多对一模型:
+            多个用户级线程映射到一个内核级线程。且一个进程只被分配一个内核级线程。
+
+            优点:
+                用户级线程的切换在用户空间即可完成，不需要切换到核心态，线程管理的系统开销小，效率高
+            缺点:
+                当一个用户级线程被阻塞后，整个进程都会被阻塞，并发度不高。多个线程不可在多核处理机上并行运行
+            
+            重点:操作系统只能看见内核级线程,因此只有内核级线程才是处理机分配的单位
+
+        多对多模型:
+            n用户及线程映射到m个内核级线程（n&gt;=m）每个用户进程对应 m 个内核级线程 克服了多对一模型并发度不高的缺点(一个阻塞全体阻塞)又克服了一对一模型中一个用户进程占用太多内核级线程,开销太大的缺点。
+
+            可以这么理解:
+                用户级线程是代码逻辑的载体   内核级线程是运行机会的载体
+                一段逻辑代码只有获得了运行机会才能被CPU执行(内核级线程中可以运行任意一个有映射关系的用户级线程代码，只有两个内核级线程中正在运行的代码逻辑都阻塞时，这个进程才会阻塞)
+</code></pre>
+<h5 id="2-2-1-调度的概念-层次"><a href="#2-2-1-调度的概念-层次" class="headerlink" title="2.2.1(调度的概念 层次):"></a>2.2.1(调度的概念 层次):</h5><pre><code class="hljs">三层调度:
+    高级调度(作业调度):按照某种规则，从后备队列中选择合适的作业将其调入内存，并为其创建进程
+                      外存→内存(面向作业)
+                      发生频率最低
+                      无-&gt;创建态-&gt;就绪态
+    中级调度(内存调度):
+                      按照某种规则，从挂起队列中选择合适的进程将其数据调回内存
+                      外存→内存(面向进程)
+                      发生频率中等
+                      挂起态-&gt;就绪态(阻塞态挂起-&gt;阻塞态)
+
+    低级调度(进程调度):
+                      按照某种规则，从就绪队列中选择一个进程为其分配处理机
+                      内存-&gt;CPU
+                      发生频率最高
+                      就绪态-&gt;运行态
+</code></pre>
+<h5 id="2-2-2-进程调度的时机-切换-过程-方式"><a href="#2-2-2-进程调度的时机-切换-过程-方式" class="headerlink" title="2.2.2(进程调度的时机 切换 过程 方式):"></a>2.2.2(进程调度的时机 切换 过程 方式):</h5><pre><code class="hljs">进程调度的方式:
+    非剥夺调度方式(非抢占式):只允许进程主动放弃处理机 在运行过程中即便有更紧迫的任务到达,当前进程依然会继续使用处理机,直到该进程终止或主动要求进入阻塞态。 开销小 无法及时处理紧急任务
+    剥夺调度方式(抢占式):当一个进程正在处理机上执行时,如果有一个更重要或更紧迫的进程需要使用处理机,则立即暂停正在执行的进程,将处理机分配给更重要紧迫的那个进程。可以优先处理紧急进程
+注意:进程切换是有代价的,因此如果过于频繁的进行进程调度、切换,必然会使整个系统的效率降低,使系统大部分时间都花在了进程切换上,而真正用于执行进程的时间减少。
+
+闲逛进程:调度程序永远的备胎 没有其他就绪进程时候 运行闲逛进程(也就是说CPU永远不会停下来 因为有相关进程)
+闲逛进程特性:优先级最低 能耗低 可以是0地址指令,占一个完整的指令周期(指令周期末尾例行检查中断)
+</code></pre>
+<h5 id="2-2-3-调度算法的评价指标"><a href="#2-2-3-调度算法的评价指标" class="headerlink" title="2.2.3(调度算法的评价指标):"></a>2.2.3(调度算法的评价指标):</h5><pre><code class="hljs">cpu利用率:指CPU忙碌的时间占总时间的比例(利用率=忙碌的时间/总时间)
+
+系统吞吐量:单位时间内完成作业的数量(系统吞吐量=总共完成了多少道作业/总共花费多少时间)
+
+周转时间:是指从作业被提交给系统开始到作业完成为止的这段时间间隔(周转时间=作业完成时间-作业提交时间)(平均周转时间=各作业周转时间之和/作业数)
+(它包括四个部分:作业在外存后备队列上等待作业调度(高级调度)的时间、进程在就绪队列上等待进程调度(低级调度)的时间、进程在CPU上执行的时间、进程等待I/O操作完成的时间。后三项在一个作业的整个处理过程中,可能发生多次。)
+带权周转时间=作业周转时间/作业实际运行时间=(作业完成时间-作业提交时间)/作业实际运行时间(带权周转时间必然&gt;=1 带权周转时间与周转时间都是越小越好)
+平均带权周转时间=各作业带权周转时间之和/作业数
+
+等待时间:指进程/作业处于等待处理机状态时间之和,等待时间越长,用户满意度越低。
+(对于进程来说,等待时间就是指进程建立后等待被服务的时间之和,在等待I/O完成的期间其实进程也是在被服务的,所以不计入等待时间。)
+(对于作业来说,不仅要考虑建立进程后的等待时间,还要加上作业在外存后备队列中等待的时间。)
+
+相应时间:指从用户提交申请到首次产生响应时间所用的时间
+</code></pre>
+<h5 id="2-2-5-调度算法"><a href="#2-2-5-调度算法" class="headerlink" title="2.2.5(调度算法):"></a>2.2.5(调度算法):</h5><pre><code class="hljs">饥饿:某进程/作业长期得不到服务
+
+-----------------------------------适合批处理操作系统------------------------------
+
+先来先服务(FCFS):
+按照到达的先后顺序调度,先到的先调度,先到先得,类似队列先进先出
+    算法思想:主要从公平的角度考虑(类似于生活中的排队买东西)
+    算法规则:按照作业/进程到达的先后顺序进行服务
+    用于作业/进程调度:用于作业调度时,考虑的是哪个作业先到达后备队列 用于进程调度时,考虑的是哪个进程先到达就绪队列
+    是否可抢占:非抢占式的算法
+    优点:公平 算法实现简单
+    缺点:排在长作业(进程)后面的短作业需要等待很长时间,带权周转时间很大,对短作业来说用户体验不好 即FCFS算法对长作业有利,对短作业不利
+    是否会导致饥饿:否
+
+短作业优先(SJF):
+非抢占式:每次调度时选择当前已到达且运行时间最短的作业/进程。
+抢占式:每当有进程加入就绪队列改变时就需要调度,如果新到达的进程剩余时间比当前运行的进程剩余时间更短,则由新进程抢占处理机,当前运行进程重新回到就绪队列。另外,当一个进程完成时也需要调度
+    算法思想:追求最少的平均等待时间,最少的平均周转时间、最少的平均平均带权周转时间
+    算法规则:最短的作业/进程优先得到服务(所谓“最短”,是指要求服务时间最短)
+    用于作业/进程调度:即可用于作业调度,也可用于进程调度。用于进程调度时称为“短进程优先(SPF)算法”
+    是否可抢占:SJF和SPF是非抢占式的算法。但是也有抢占式的版本 最短剩余时间优先算法(SRTN)
+    优点:“最短的”平均等待时间、平均周转时间
+    缺点:不公平。对短作业有利,对长作业不利。可能产生饥饿现象。另外,作业/进程的运行时间是由用户提供的,并不一定真实,不一定能做到真正的短作业优先
+    是否会导致饥饿:会,如果短进程/作业源源不断的到来,长作业会饥饿甚至饿死
+
+高响应闭优先(HRRN):
+非抢占式的调度算法,只有当前运行的进程主动放弃CPU时(正常/异常完成,或主动阻塞),才需要进行调度,调度时计算所有就绪进程的响应比,选响应比最高的进程上处理机。
+    算法思想:要综合考虑作业/进程的等待时间和要求服务的时间
+    算法规则:在每次调度时先计算各个作业/进程的响应比,选择响应比最高的作业/进程为其服务(相应比=(等待时间+要求服务时间)/要求服务时间)
+    用于作业/进程调度:即可用于作业调度,也可用于进程调度
+    是否可抢占:非抢占式的算法。因此只有当前运行的作业/进程主动放弃处理机时,才需要调度,才需要计算响应比
+    优缺点:综合考虑了等待时间和运行时间(要求服务时间) 等待时间相同时,要求服务时间短的优先(SJF的优点) 要求服务时间相同时,等待时间长的优先(FCFS的优点) 对于长作业来说,随着等待时间越来越久,其响应比也会越来越大,从而避免了长作业饥饿的问题
+    是否会导致饥饿:不会
+
+-------------------------------------适合交互式操作系统(包括分布式操作系统 实时操作系统)---------------------------------------------
+
+时间片轮转(RR):
+时间片轮转调度算法:轮流让就绪队列中的进程依次执行一个时间片(每次选择的都是排在就绪队列队头的进程)
+    算法思想:公平地、轮流地为各个进程服务,让每个进程在一定时间间隔内都可以得到响应
+    算法规则:按照各进程到达就绪队列的顺序,轮流让各个进程执行一个时间片(如100ms)。若进程未在一个时间片内执行完,则剥夺处理机,将进程重新放到就绪队列队尾重新排队。
+    用于作业/进程调度:用于进程调度(只有作业放入内存建立了相应的进程后,才能被分配处理机时间片) 只能用于进程
+    是否可抢占:若进程未能在时间片内运行完,将被强行剥夺处理机使用权,因此时间片轮转调度算法属于抢占式的算法。由时钟装置发出时钟中断来通知CPU时间片已到
+    优点:公平;响应快,适用于分时操作系统;
+    缺点:由于高频率的进程切换,因此有一定开销;不区分任务的紧急程度。
+    是否会导致饥饿:不会
+    注意点(补充):如果时间片太大,使得每个进程都可以在一个时间片内就完成,则时间片轮转调度算法退化为先来先服务调度算法,并且会增大进程响应时间。因此时间片不能太大。另一方面,进程调度、切换是有时间代价的(保存、恢复运行环境),因此如果时间片太小,会导致进程切换过于频繁,系统会花大量的时间来处理进程切换,从而导致实际用于进程执行的时间比例减少。可见时间片也不能太小。
+
+优先级调度算法:
+非抢占式的优先级调度算法:每次调度时选择当前已到达且优先级最高的进程。当前进程主动放弃处理机时发生调度。
+抢占式的优先级调度算法:每次调度时选择当前已到达且优先级最高的进程。当前进程主动放弃处理机时发生调度。另外,当就绪队列发生改变时也需要检查是会发生抢占。
+    算法思想:随着计算机的发展,特别是实时操作系统的出现,越来越多的应用场景需要根据任务的紧急程度来决定处理顺序
+    算法规则:调度时选择优先级最高的作业/进程
+    用于作业/进程调度:既可用于作业调度,也可用于进程调度。甚至,还用于I/o调度中
+    是否可抢占:抢占式、非抢占式都有。做题时的区别在于:非抢占式只需在进程主动放弃处理机时进行调度即可,而抢占式还需在就绪队列变化时,检查是否会发生抢占。
+    优点:用优先级区分紧急程度、重要程度,适用于实时操作系统。可灵活地调整对各种作业/进程的偏好程度。
+    缺点:若源源不断地有高优先级进程到来,则可能导致饥饿
+    是否会导致饥饿:会
+    补充:就绪队列未必只有一个,可以按照不同优先级来组织。另外,也可以把优先级高的进程排在更靠近队头的位置
+        根据优先级是否可以动态改变,可将优先级分为静态优先级和动态优先级两种。
+        静态优先级:创建进程时确定,之后一直不变。
+        动态优先级:创建进程时有一个初始值,之后会根据情况动态地调整优先级。
+    通常:
+        系统进程优先级高于用户进程
+        前台进程优先级高于后台进程
+        操作系统更偏好I/O型进程(或称I/O繁忙型进程)
+        注:与I/O型进程相对的是计算型进程(或称CPU繁忙型进程)
+
+    可以从追求公平、提升资源利用率等角度考虑:
+        如果某进程在就绪队列中等待了很长时间,则可以适当提升其优先级
+        如果某进程占用处理机运行了很长时间,则可适当降低其优先级
+        如果发现一个进程频繁地进行I/O操作,则可适当提升其优先级
+
+多级反馈队列调度算法:
+设置多级就绪队列,各级队列优先级从高到低,时间片从小到大新进程到达时先进入第1级队列,按FCFS原则排队等待被分配时间片。若用完时间片进程还未结束,则进程进入下一级队列队尾。如果此时已经在最下级的队列,则重新放回最下级队列队尾只有第k级队列为空时,才会为k+1级队头的进程分配时间片
+    算法思想:对其他调度算法的折中权衡
+    算法规则:1. 设置多级就绪队列,各级队列优先级从高到低,时间片从小到大
+            2. 新进程到达时先进入第1级队列,按FCFS原则排队等待被分配时间片,若用完时间片进程还未结束,则进程进入下一级队列队尾。如果此时已经是在最下级的队列,则重新放回该队列队尾
+            3. 只有第k级队列为空时,才会为k+1级队头的进程分配时间片
+    用于作业/进程调度:用于进程调度
+    是否可抢占:抢占式的算法。在k级队列的进程运行过程中,若更上级的队列(1~k-1级)中进入了一个新进程,则由于新进程处于优先级更高的队列中,因此新进程会抢占处理机,原来运行的进程放回k级队列队尾。
+    优缺点:对各类型进程相对公平(FCFS的优点);每个新到达的进程都可以很快就得到响应(RR的优点);短进程只用较少的时间就可完成(SPF的优点);不必实现估计进程的运行时间(避免用户作假);可灵活地调整对各类进程的偏好程度,比如CPU密集型进程、1/O密集型进程(拓展:可以将因I/O而阻塞的进程重新放回原队列,这样I/O型进程就可以保持较高优先级)
+    是否会导致饥饿:会
+    
+
+调度算法总结:
+    比起早期的批处理操作系统来说,由于计算机造价大幅降低,因此之后出现的交互式操作系统(包括分时操作系统、实时操作系统等)更注重系统的响应时间、公平性、平衡性等指标。而这几种算法恰好也能较好地满足交互式系统的需求。因此这三种算法适合用于交互式系统。(比如UNIX使用的就是多级反馈队列调度算法)
+
+其他算法(多级队列调度算法):
+系统中按进程类型设置多个队列,进程创建成功后插入某个队列
+    队列之间可采取固定优先级,或时间片划分固定优先级:高优先级空时低优先级进程才能被调度时间片划分:如三个队列分配时间50%、40%、10%
+    各队列可采用不同的调度策略,如:-系统进程队列采用优先级调度 交互式队列采用RR 批处理队列采用FCFS
+</code></pre>
+<h5 id="2-3-1-同步和互斥概念"><a href="#2-3-1-同步和互斥概念" class="headerlink" title="2.3.1(同步和互斥概念):"></a>2.3.1(同步和互斥概念):</h5><pre><code class="hljs">同步:同步亦称直接制约关系，它是指为完成某种任务而建立的两个或多个进程，这些进程因为需要在某些位置上协调它们的工作次序而产生的制约关系。进程间的直接制约关系就是源于它们之间的相互合作。
+
+互斥:我们把一个时间段内只允许一个进程使用的资源称为临界资源。许多物理设备(比如摄像头、打印机)都属于临界资源。此外还有许多变量、数据、内存缓冲区等都属于临界资源。对临界资源的访问，必须互斥地进行。互斥，亦称间接制约关系。进程互斥指当一个进程访问某临界资源时，另一个想要访问该临界资源的进程必须等待。当前访问临界资源的进程访问结束，释放该资源之后。另一个进程才能去访问临界资源。
+
+对临界资源的互斥访问，可以分成四个部分:进入区(上锁) 临界区(访问) 退出区(解锁) 剩余区(其他处理)
+    注意:临界区是进程中访问临界资源的代码段。进入区和退出区是负责实现互斥的代码段。临界区也可称为“临界段”。
+
+遵循的原则:
+    1.空闲让进。临界区空闲时，可以允许一个请求进入临界区的进程立即进入临界区;
+    2.忙则等待。当已有进程进入临界区时，其他试图进入临界区的进程必须等待:
+    3.有限等待。对请求访问的进程，应保证能在有限时间内进入临界区(保证不会饥饿);
+    4.让权等待。当进程不能进入临界区时，应立即释放处理机，防止进程忙等待。
+</code></pre>
+<h5 id="2-3-2-互斥的实现方法-软件-硬件"><a href="#2-3-2-互斥的实现方法-软件-硬件" class="headerlink" title="2.3.2(互斥的实现方法:软件 硬件)"></a>2.3.2(互斥的实现方法:软件 硬件)</h5><pre><code class="hljs">软件:
+
+
+    单标志法:
+        两个进程在访问完临界区后会把使用临界区的权限转交给另一个进程。也就是说每个进程进入临界区的权限只能被另一个进程赋子
+</code></pre>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs arduino">p0进程:<br><span class="hljs-type">int</span> ture=<span class="hljs-number">0</span> <span class="hljs-comment">//turn 表示当前允许进入临界区的进程号 当前只能进入0进程</span><br><span class="hljs-keyword">while</span>(ture!=<span class="hljs-number">0</span>);<span class="hljs-comment">//若ture不等于0则一直进入循环等待直到ture等于0 注意此循环后有分号即这一条循环语句只包括自身</span><br>critical section;<span class="hljs-comment">//访问临界资源</span><br>turn=<span class="hljs-number">1</span>;<span class="hljs-comment">//解锁 并把权限赋给1号进程</span><br>remainder section:<span class="hljs-comment">//剩余其他操作</span><br></code></pre></td></tr></table></figure>
+<pre><code class="hljs">    此算法无法满足空闲让尽原则(因为如果进程0进入临界资源但是一直不访问和不允许其他进程访问就会占用资源)
+</code></pre>
+<p><img src="/os/%E5%8D%95%E6%A0%87%E5%BF%97%E6%B3%95.png" srcset="/img/loading.gif" lazyload alt="图示"></p>
+<pre><code class="hljs">    双标志先检查法:
+        算法思想:设置一个布尔型数组flag[],数组中各个元素用来标记各进程想进入临界区的意愿,比如“flag[0]=ture”意味着0号进程PO现在想要进入临界区。每个进程在进入临界区之前先检查当前有没有别的进程想进入临界区,如果没有,则把自身对应的标志flag[i]设为true,之后开始访问临界区。
+</code></pre>
+<figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sqf">Bool <span class="hljs-built_in">flag</span>[<span class="hljs-number">2</span>];<span class="hljs-comment">//表示进入临界区意愿的数组</span><br><span class="hljs-built_in">flag</span>[<span class="hljs-number">0</span>]=<span class="hljs-literal">false</span>;<br><span class="hljs-built_in">flag</span>[<span class="hljs-number">1</span>]=<span class="hljs-literal">false</span>;<span class="hljs-comment">//初始化</span><br>p1进程:<br><span class="hljs-keyword">while</span>(<span class="hljs-built_in">flag</span>[<span class="hljs-number">0</span>]);<span class="hljs-comment">//先判断对方有没有意愿进入临界区 若有则本进程等待</span><br><span class="hljs-built_in">flag</span>[<span class="hljs-number">1</span>]=ture;<span class="hljs-comment">//通过上面循环则表示对方不想进入 所以即可把自己的设为ture 上锁</span><br>critical section;<span class="hljs-comment">//访问临界资源</span><br><span class="hljs-built_in">flag</span>[<span class="hljs-number">1</span>]=<span class="hljs-literal">false</span>;<span class="hljs-comment">//访问完毕表示不想在访问 解锁</span><br>remainder section:<span class="hljs-comment">//剩余其他操作</span><br></code></pre></td></tr></table></figure>
+<pre><code class="hljs">        双标志检查法主要是违反慢则等待原则(如果两个进程并发执行则可能会同时进入访问临界区 按照152637顺序会违反)
+        原因在于,进入区的“检查”和“上锁”两个处理不是一气呵成的。“检查”后,“上锁”前可能发生进程切换
+</code></pre>
+<p><img src="/os/%E5%8F%8C%E6%A0%87%E5%89%8D%E6%A3%80%E6%9F%A5%E6%B3%95.png" srcset="/img/loading.gif" lazyload alt="图示"></p>
+<pre><code class="hljs">    双标志后检查法:
+    
+
+
+
+
+        
+</code></pre>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="print-no-link">#操作系统</a>
+      
+        <a href="/tags/%E5%9B%9B%E5%A4%A7%E4%BB%B6/" class="print-no-link">#四大件</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>操作系统</div>
+      <div>http://example.com/2025/02/10/操作系统/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>kunkun</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年2月10日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/02/10/STL/" title="STL">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">STL</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/01/25/%E6%8E%92%E5%BA%8F%E6%80%BB%E7%BB%93/" title="排序算法总结">
+                        <span class="hidden-mobile">排序算法总结</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
